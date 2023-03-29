@@ -27,7 +27,7 @@
 
             <div class="container bg-white p-3">
                 <div class="container-fluid cardNumber p-3">
-                    <span class="text-white">Found 35 cards</span>
+                    <span class="text-white">Found {{ store.cardList.length }} cards</span>
                 </div>
 
                 <div class="container ">
