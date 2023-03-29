@@ -11,9 +11,9 @@
 
 <template>
 
-    <div>
+    <div class="cardSingular">
         <img class="img-fluid" :src="image" alt="Card Image">
-        <h4>{{ name }}</h4>
+        <h4 class="text-white p-2">{{ name }}</h4>
         <h5>{{ race }}</h5>
     </div>
 </template>

@@ -27,14 +27,14 @@
 
             <div class="container bg-white p-3">
                 <div class="container-fluid cardNumber p-3">
-                    <span class="text-white">Found # card</span>
+                    <span class="text-white">Found 35 cards</span>
                 </div>
 
                 <div class="container ">
                     <div class="row d-flex justify-content-between py-2">
-                        <div class="cards m-2 text-center col-2 " v-for="(card, index) in store.cardList" :key="index">
+                        <div class="cards m-2 p-0 text-center col-2 " v-for="(card, index) in store.cardList" :key="index">
                             <CardLayout
-                                :image="card.card_images[0].image_url_cropped"
+                                :image="card.card_images[0].image_url"
                                 :name="card.name"
                                 :race="card.race"
                                 />
