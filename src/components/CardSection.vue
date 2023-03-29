@@ -30,7 +30,18 @@
                     <span class="text-white">Found # card</span>
                 </div>
 
-                <CardLayout></CardLayout>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3" v-for="(card, index) in store.cardList" :key="index">
+                            <CardLayout
+                                :image="card.card_images.image_url_cropped"
+                                :name="card.name"
+                                :race="card.race"
+                                />
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
         
