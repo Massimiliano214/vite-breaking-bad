@@ -1,6 +1,19 @@
 <script>
+
+    import { store } from "../store.js";
+
+    import CardLayout from "./CardLayout.vue";
+
     export default {
         name: "CardSection",
+            data() {
+                return {
+                    store
+                }
+            },
+        components: {
+            CardLayout
+        }
     }
 </script>
 
@@ -16,6 +29,8 @@
                 <div class="container-fluid cardNumber p-3">
                     <span class="text-white">Found # card</span>
                 </div>
+
+                <CardLayout></CardLayout>
             </div>
         </div>
         

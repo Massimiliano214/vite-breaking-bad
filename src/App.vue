@@ -1,6 +1,6 @@
 <script>
 
-    import axios form "axios";
+    import axios from "axios";
     import { store } from "./store.js";
     import TheHeader from "./components/TheHeader.vue";
     import CardSection from "./components/CardSection.vue";
