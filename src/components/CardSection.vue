@@ -30,11 +30,11 @@
                     <span class="text-white">Found # card</span>
                 </div>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3" v-for="(card, index) in store.cardList" :key="index">
+                <div class="container ">
+                    <div class="row d-flex justify-content-between py-2">
+                        <div class="cards m-2 text-center col-2 " v-for="(card, index) in store.cardList" :key="index">
                             <CardLayout
-                                :image="card.card_images.image_url_cropped"
+                                :image="card.card_images[0].image_url_cropped"
                                 :name="card.name"
                                 :race="card.race"
                                 />
@@ -51,7 +51,7 @@
 </template>
 
 <style scoped lang="scss">
-    .mainAll {
+    .mainAll, .cards {
         background-color: rgb(224, 140, 51);
     }
 
