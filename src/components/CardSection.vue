@@ -21,18 +21,18 @@
                 console.log(this.store.cardList.length );
                 let x = 0;
             for(let i = 0; this.store.cardList.length > i; i++) {
-                let x = 0;
-                if(!this.archetypeList.includes(this.store.cardList[x].archetype)) {
-                    this.archetypeList.push(this.store.cardList[x].archetype);
-                    console.log(this.store.cardList[x].archetype);
+                if((!this.archetypeList.includes(this.store.cardList[i].archetype) && this.store.cardList[i].archetype.length > 1)) {
+                    this.archetypeList.push(this.store.cardList[i].archetype);
+                    console.log(this.store.cardList[i].archetype.length);
                 }
-                    
-            }
-            x++;
-            
             }
             
             
+            }
+            
+            
+        },mounted() {
+
         }
     }
 </script>
@@ -41,8 +41,7 @@
 <template>
     <div class="mainAll container-fluid">
         <div class="container p-4">
-            <select @click="listaFiltro()" class="px-5 py-2 rounded m-4" name="categories" id="race">
-                <option value="all">All Archetypes</option>
+            <select @click="listaFiltro()" @change="$emit('doSearch', 'value')" class="px-5 py-2 rounded m-4" name="categories" id="race">
                 <option v-for="(archetype, index) in archetypeList" :key="index" value="archetype')">{{archetype}}</option>
             </select>
 

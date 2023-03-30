@@ -20,7 +20,7 @@
         methods: {
             getCards() {
                 let apiLink = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num20&offset=0";
-                if(store.cardList.archetype != "All Archetypes") {
+                if(value != "All Archetypes") {
                     axios.get(apiLink)
                     .then(response => {
                         this.store.cardList = response.data.data;
