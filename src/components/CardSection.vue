@@ -20,9 +20,11 @@
             listaFiltro(archetype) {
                 console.log(this.store.cardList.length );
             for(let i = 0; this.store.cardList.length > i; i++) {
-                if(!archetypeList[i].includes(this.store.cardList.archetype))
-                this.archetypeList.push(this.store.cardList.archetype);
-                console.log(this.store.cardList.archetype);
+                if(!archetypeList.includes(this.store.cardList.archetype)) {
+                    this.archetypeList.push(this.store.cardList.archetype);
+                    console.log(this.store.cardList.archetype);
+                }
+                    
             }
             }
             
