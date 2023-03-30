@@ -22,7 +22,8 @@
     <div class="mainAll container-fluid">
         <div class="container p-4">
             <select class="px-5 py-2 rounded m-4" name="categories" id="race">
-                <option value="alien">Alien</option>
+                <option value="all">All Archetypes</option>
+                <option v-for="(archetype, index) in store.cardList" value="$emit('doSearch', 'archetype.archetype')">{{archetype.archetype}}</option>
             </select>
 
             <div class="container bg-white p-3">

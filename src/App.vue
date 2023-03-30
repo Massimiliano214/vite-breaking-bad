@@ -19,7 +19,9 @@
         },
         methods: {
             getCards() {
-                axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=metal%20raiders&attribute=dark")
+                let apiLink = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num20&offset=0";
+
+                axios.get(apiLink += "")
                 .then(response => {
                     this.store.cardList = response.data.data;
                     this.store.loading = false;
@@ -37,7 +39,7 @@
 <template>
     <LoadingWait />
     <TheHeader></TheHeader>
-    <CardSection />
+    <CardSection @doSearch="getCards" />
 </template>
 
 

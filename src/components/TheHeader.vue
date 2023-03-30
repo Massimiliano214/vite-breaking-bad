@@ -7,7 +7,7 @@
 
 <template>
     <div class="container d-flex align-items-center">
-        <img class="icon" src="../../public/Yu-Gi-Oh!.svg" alt="logo gioco">
+        <img class="icon" src="/Yu-Gi-Oh!.svg" alt="logo gioco">
         <h1>Yh-Gi-Oh Api</h1>
     </div>
 
