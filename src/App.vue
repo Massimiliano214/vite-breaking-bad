@@ -29,7 +29,7 @@
                         this.store.loading = false;
                     });
                 } else {
-                    apiLink = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${value}`;
+                    apiLink = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${this.value}`;
                     axios.get(apiLink)
                     .then(response => {
                         this.store.cardList = response.data.data;

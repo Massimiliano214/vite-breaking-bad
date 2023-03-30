@@ -20,7 +20,7 @@
             listaFiltro() {
                 console.log(this.store.cardList.length );
             for(let i = 0; this.store.cardList.length > i; i++) {
-                if((!this.archetypeList.includes(this.store.cardList[i].archetype) && this.store.cardList[i].archetype.length > 0)) {
+                if((!this.archetypeList.includes(this.store.cardList[i].archetype) && this.store.cardList[i].archetype != "")) {
                     this.archetypeList.push(this.store.cardList[i].archetype);
                     console.log(this.store.cardList[i].archetype.length);
                 }
@@ -41,7 +41,7 @@
     <div class="mainAll container-fluid">
         <div class="container p-4">
             <select @click="listaFiltro()" @change="$emit('doSearch', value)" class="px-5 py-2 rounded m-4" name="categories" id="race">
-                <option v-for="(archetype, index) in archetypeList" :key="index" value="archetype')">{{archetype}}</option>
+                <option v-for="(archetype, index) in archetypeList" :key="index" :value="archetype">{{archetype}}</option>
             </select>
 
             <div class="container bg-white p-3">
