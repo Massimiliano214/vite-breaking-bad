@@ -19,13 +19,17 @@
         methods: {
             listaFiltro() {
                 console.log(this.store.cardList.length );
+                let x = 0;
             for(let i = 0; this.store.cardList.length > i; i++) {
-                if(!this.archetypeList.includes(this.store.cardList.archetype)) {
-                    this.archetypeList.push(this.store.cardList.archetype);
-                    console.log(this.store.cardList);
+                let x = 0;
+                if(!this.archetypeList.includes(this.store.cardList[x].archetype)) {
+                    this.archetypeList.push(this.store.cardList[x].archetype);
+                    console.log(this.store.cardList[x].archetype);
                 }
                     
             }
+            x++;
+            
             }
             
             
@@ -39,7 +43,7 @@
         <div class="container p-4">
             <select @click="listaFiltro()" class="px-5 py-2 rounded m-4" name="categories" id="race">
                 <option value="all">All Archetypes</option>
-                <option v-for="(archetype, index) in archetypeList" :key="index" value="archetype')">{{archetype.archetype}}</option>
+                <option v-for="(archetype, index) in archetypeList" :key="index" value="archetype')">{{archetype}}</option>
             </select>
 
             <div class="container bg-white p-3">
