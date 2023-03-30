@@ -17,10 +17,10 @@
             CardLayout
         },
         methods: {
-            listaFiltro(archetype) {
+            listaFiltro() {
                 console.log(this.store.cardList.length );
             for(let i = 0; this.store.cardList.length > i; i++) {
-                if(!archetypeList.includes(this.store.cardList.archetype)) {
+                if(!this.archetypeList.includes(this.store.cardList.archetype)) {
                     this.archetypeList.push(this.store.cardList.archetype);
                     console.log(this.store.cardList.archetype);
                 }
@@ -37,9 +37,9 @@
 <template>
     <div class="mainAll container-fluid">
         <div class="container p-4">
-            <select @click="listaFiltro(archetype2)" class="px-5 py-2 rounded m-4" name="categories" id="race">
+            <select @click="listaFiltro()" class="px-5 py-2 rounded m-4" name="categories" id="race">
                 <option value="all">All Archetypes</option>
-                <option v-for="(archetype2, index) in store.cardList" value="$emit('doSearch', 'archetype.archetype')">{{archetype2.archetype}}</option>
+                <option v-for="(archetype, index) in store.cardList" value="$emit('doSearch', 'archetype.archetype')">{{archetype.archetype}}</option>
             </select>
 
             <div class="container bg-white p-3">
