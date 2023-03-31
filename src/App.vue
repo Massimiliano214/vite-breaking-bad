@@ -21,15 +21,15 @@
             getCards() {
                 let apiLink = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num20&offset=0";
                 
-                console.log("value" + this.value);
-                if(this.value != "All Archetypes") {
+                console.log("value " + store.search);
+                if(store.search == "All Archetypes") {
                     axios.get(apiLink)
                     .then(response => {
                         this.store.cardList = response.data.data;
                         this.store.loading = false;
                     });
                 } else {
-                    apiLink = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${this.value}`;
+                    apiLink = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.search}`;
                     axios.get(apiLink)
                     .then(response => {
                         this.store.cardList = response.data.data;
@@ -37,10 +37,12 @@
                     });
                 }
                 
-            }
+            },
+           
         },
         created() {
             this.getCards();
+            
         }
     }
     

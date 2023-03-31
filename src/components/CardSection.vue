@@ -1,5 +1,5 @@
 <script>
-
+    import axios from "axios";
     import { store } from "../store.js";
 
     import CardLayout from "./CardLayout.vue";
@@ -9,7 +9,7 @@
             data() {
                 return {
                     store,
-                    archetypeList: ["All Archetypes"],
+                    
 
                 }
             },
@@ -17,21 +17,35 @@
             CardLayout
         },
         methods: {
+            getArchetype() {
+                axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
+                .then(response => {
+                    console.log(response.data.length);
+                    for(let i = 0; response.data.length > i; i++) {
+                        this.store.archetypeList.push(response.data[i].archetype_name);
+                        
+                    }
+                    
+            
+                });
+            }
+            /* 
             listaFiltro() {
                 console.log(this.store.cardList.length );
             for(let i = 0; this.store.cardList.length > i; i++) {
-                if((!this.archetypeList.includes(this.store.cardList[i].archetype) && this.store.cardList[i].archetype != "")) {
+                if(!this.archetypeList.includes(this.store.cardList[i].archetype)) {
                     this.archetypeList.push(this.store.cardList[i].archetype);
                     console.log(this.store.cardList[i].archetype.length);
                 }
             }
-            
-            
+           
+             
             }
             
-            
-        },mounted() {
-
+            */
+        },
+        created() {
+            this.getArchetype();
         }
     }
 </script>
@@ -40,8 +54,8 @@
 <template>
     <div class="mainAll container-fluid">
         <div class="container p-4">
-            <select @click="listaFiltro()" @change="$emit('doSearch', value)" class="px-5 py-2 rounded m-4" name="categories" id="race">
-                <option v-for="(archetype, index) in archetypeList" :key="index" :value="archetype">{{archetype}}</option>
+            <select v-model="store.search" @change="$emit('doSearch', value)" class="px-5 py-2 rounded m-4" name="categories" id="race">
+                <option v-for="(archetype, index) in store.archetypeList" :key="index" :value="archetype">{{archetype}}</option>
             </select>
 
             <div class="container bg-white p-3">
